@@ -6,7 +6,7 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>BIENVENIDO A GOTTEOSHOP</Text>
       <Image 
-        source={{ uri: 'https://drive.google.com/uc?export=view&id=1JR2eB2gBc9VeHV0ksDootwUiax0Fzf16' }} 
+        source={{ uri: 'https://i.postimg.cc/k4PNzvGb/download.jpg' }} 
         style={styles.banner} 
       />
       <Text style={styles.subtitle}>Explora nuestra colección de productos exclusivos</Text>
