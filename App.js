@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Ionicons } from '@expo/vector-icons';
 
+// Importa tus pantallas
 import HomeScreen from './screens/HomeScreen';
 import Catalog from './screens/Catalog';
 import Usuario3D from './screens/Usuario3D';
@@ -15,17 +16,26 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
-          headerShown: false,
+          headerShown: false, // Quita el header
+          tabBarStyle: { backgroundColor: '#fff' }, // Fondo de la barra
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-            if (route.name === 'Home') iconName = focused ? 'home' : 'home-outline';
-            else if (route.name === 'Catalog') iconName = focused ? 'cart' : 'cart-outline';
-            else if (route.name === 'Usuario3D') iconName = focused ? 'person' : 'person-outline';
-            else if (route.name === 'Menu') iconName = focused ? 'menu' : 'menu-outline';
-            return <Icon name={iconName} size={size} color={color} />;
+
+            // Iconos por pantalla
+            if (route.name === 'Home') {
+              iconName = focused ? 'home' : 'home-outline';
+            } else if (route.name === 'Catalog') {
+              iconName = focused ? 'cart' : 'cart-outline';
+            } else if (route.name === 'Usuario3D') {
+              iconName = focused ? 'person' : 'person-outline';
+            } else if (route.name === 'Menu') {
+              iconName = focused ? 'menu' : 'menu-outline';
+            }
+
+            return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: '#000',
-          tabBarInactiveTintColor: 'gray',
+          tabBarActiveTintColor: '#000', // Color activo
+          tabBarInactiveTintColor: 'gray', // Color inactivo
         })}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
