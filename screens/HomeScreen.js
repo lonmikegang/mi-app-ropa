@@ -4,9 +4,9 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bienvenido a Mi App de Ropa</Text>
+      <Text style={styles.title}>BIENVENIDO A GOTTEOSHOP</Text>
       <Image 
-        source={{ uri: 'https://i.ibb.co/2y7K3dD/banner-home.jpg' }} 
+        source={{ uri: 'https://drive.google.com/uc?export=view&id=1JR2eB2gBc9VeHV0ksDootwUiax0Fzf16' }} 
         style={styles.banner} 
       />
       <Text style={styles.subtitle}>Explora nuestra colección de productos exclusivos</Text>
