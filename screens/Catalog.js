@@ -1,68 +1,64 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 
 const productos = [
   {
-    id: '1',
+    id: 1,
     nombre: 'Camiseta Negra',
-    precio: 'S/ 59',
-    imagen: 'https://link-de-tu-imagen.com/camiseta-negra.jpg',
-    tallas: ['S', 'M', 'L', 'XL'],
+    precio: 49.99,
+    imagen: 'https://i.ibb.co/0Jmshvb/camiseta-negra.jpg',
   },
   {
-    id: '2',
-    nombre: 'Pantalón Jeans',
-    precio: 'S/ 120',
-    imagen: 'https://link-de-tu-imagen.com/jeans.jpg',
-    tallas: ['28', '30', '32', '34'],
+    id: 2,
+    nombre: 'Zapatillas Blancas',
+    precio: 129.99,
+    imagen: 'https://i.ibb.co/2t5WZVt/zapatillas-blancas.jpg',
+  },
+  {
+    id: 3,
+    nombre: 'Gorra Azul',
+    precio: 29.99,
+    imagen: 'https://i.ibb.co/8M5R7zC/gorra-azul.jpg',
   },
 ];
 
-export default function Catalog({ navigation }) {
+export default function Catalog() {
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={productos}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.producto}
-            onPress={() => navigation.navigate('ProductDetail', { producto: item })}
-          >
-            <Image source={{ uri: item.imagen }} style={styles.imagen} />
-            <Text style={styles.nombre}>{item.nombre}</Text>
-            <Text style={styles.precio}>{item.precio}</Text>
-          </TouchableOpacity>
-        )}
-      />
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>Catálogo de Productos</Text>
+      {productos.map((prod) => (
+        <TouchableOpacity key={prod.id} style={styles.producto}>
+          <Image source={{ uri: prod.imagen }} style={styles.imagen} />
+          <Text style={styles.nombre}>{prod.nombre}</Text>
+          <Text style={styles.precio}>${prod.precio}</Text>
+        </TouchableOpacity>
+      ))}
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 10,
-    backgroundColor: '#fff',
+    alignItems: 'center',
   },
+  title: { fontSize: 24, fontWeight: 'bold', marginBottom: 20 },
   producto: {
     marginBottom: 20,
-    borderRadius: 10,
-    backgroundColor: '#f8f8f8',
+    borderWidth: 1,
+    borderColor: '#ddd',
     padding: 10,
+    borderRadius: 8,
+    width: 200,
+    alignItems: 'center',
   },
   imagen: {
-    width: '100%',
-    height: 200,
-    borderRadius: 10,
-    marginBottom: 10,
+    width: 150,
+    height: 150,
+    borderRadius: 8,
+    marginBottom: 5,
   },
-  nombre: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  precio: {
-    fontSize: 16,
-    color: 'green',
-  },
+  nombre: { fontSize: 16, fontWeight: 'bold' },
+  precio: { fontSize: 14, color: '#555' },
 });
+

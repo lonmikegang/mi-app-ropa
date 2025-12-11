@@ -1,21 +1,22 @@
 import * as React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './screens/HomeScreen';
 import Catalog from './screens/Catalog';
-import ProductDetail from './screens/ProductDetail';
+import Usuario3D from './screens/Usuario3D';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Inicio' }} />
-        <Stack.Screen name="Catalog" component={Catalog} options={{ title: 'Catálogo' }} />
-        <Stack.Screen name="ProductDetail" component={ProductDetail} options={{ title: 'Detalle' }} />
-      </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Catalog" component={Catalog} />
+        <Tab.Screen name="Usuario3D" component={Usuario3D} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
