@@ -1,19 +1,27 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bienvenido a Mi App Ropa</Text>
+      <Text style={styles.title}>Bienvenido a Mi App</Text>
 
-      <TouchableOpacity 
+      <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Catalog')}>
-        <Text style={styles.buttonText}>Ver Catálogo</Text>
+        onPress={() => navigation.navigate('Register')}
+      >
+        <Text style={styles.buttonText}>Ir al Registro</Text>
       </TouchableOpacity>
 
-      <Image 
-        source={{uri: 'https://placeimg.com/300/200/fashion'}}
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Catalog')}
+      >
+        <Text style={styles.buttonText}>Ir al Catálogo</Text>
+      </TouchableOpacity>
+
+      <Image
+        source={{ uri: 'https://via.placeholder.com/200x150.png?text=Producto+Ejemplo' }}
         style={styles.image}
       />
     </View>
@@ -23,32 +31,32 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    backgroundColor: '#f8f8f8',
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 30,
-    color: '#333',
+    marginBottom: 20,
   },
   button: {
-    backgroundColor: '#FF6F61',
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 20,
+    backgroundColor: '#ff6f61',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginVertical: 10,
   },
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
+    fontSize: 16,
   },
   image: {
-    width: 300,
-    height: 200,
-    borderRadius: 10,
-    marginTop: 20,
+    width: 200,
+    height: 150,
+    marginTop: 30,
+    borderRadius: 12,
   },
 });
-
